@@ -26,6 +26,7 @@ const advanceBlue = (e) => {
   blue_position += 1;
   changePosition(blueHorse, blue_position);
   return checkWinner();
+
 };
 const advancePink = (e) => {
   pink_position += 1;
@@ -43,12 +44,21 @@ const advanceBrown = (e) => {
 const checkWinner = (position, color) => {
   if (blue_position == 5) {
     horseWinner.innerHTML = '<p>Blue is the Winner!</p>';
+    blueButton.disabled = true;
+    pinkButton.disabled = true;
+    brownButton.disabled = true;
   }
   else if (pink_position == 5) {
     horseWinner.innerHTML = '<p>Pink is the Winner!</p>';
+    blueButton.disabled = true;
+    pinkButton.disabled = true;
+    brownButton.disabled = true;
   }
   else if (brown_position == 5) {
     horseWinner.innerHTML = '<p>Brown is the Winner!</p>';
+    blueButton.disabled = true;
+    pinkButton.disabled = true;
+    brownButton.disabled = true;
   }
 };
 
