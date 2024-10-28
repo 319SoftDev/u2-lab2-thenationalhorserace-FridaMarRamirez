@@ -19,6 +19,10 @@ const brownButton = document.querySelector("#brown-button");
 const brownHorse = document.querySelector("#brown-horse");
 // defining the winner
 const horseWinner = document.querySelector("#winner");
+// restarting the game
+const restartGame = document.querySelector("#restart");
+
+restartGame.disabled = true;
 
 
 // OnClick Functions Here
@@ -26,19 +30,23 @@ const advanceBlue = (e) => {
   blue_position += 1;
   changePosition(blueHorse, blue_position);
   return checkWinner();
-
 };
+
 const advancePink = (e) => {
   pink_position += 1;
   changePosition(pinkHorse, pink_position)
   return checkWinner();
 };
+
 const advanceBrown = (e) => {
   brown_position += 1;
   changePosition(brownHorse, brown_position);
   return checkWinner();
-}
+};
 
+const newGame = (e) => {
+  if ()
+}
 
 // Check for a winner
 const checkWinner = (position, color) => {
