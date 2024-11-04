@@ -8,6 +8,25 @@ let brown_position = 1;
 
 let randomNumber = Math.floor(Math.random() * 3);
 
+// let horses = {
+//   "blue" : {
+//       "position" : 1,
+//       "button" : document.querySelector("#blue-button"),
+//       "horse" : document.querySelector("#blue-horse")
+//   },
+//   "pink" : {
+//     "position" : 1,
+//     "button" : document.querySelector("#pink-button"),
+//     "horse" : document.querySelector("#pink-horse")
+//   },
+//   "brown" : {
+//     "position" : 1,
+//     "button" : document.querySelector("#brown-button"),
+//     "horse" : document.querySelector("#brown-horse")
+//   }
+// };
+
+
 // Query Selectors Here
 // blue horse 
 const blueButton = document.querySelector("#blue-button");
@@ -24,10 +43,14 @@ const horseWinner = document.querySelector("#winner");
 const restartGame = document.querySelector("#restart-button");
 // steps button that randomizes the steps
 const stepsButton = document.querySelector("#steps-button");
-const steps = document.querySelector("#steps")
+const steps = document.querySelector("#steps");
+// chosen color 
+const colorButton = document.querySelector("#color-button");
+const chosenHorse = document.querySelector("#chosen-horse");
 
 restartGame.disabled = true;
 restartGame.style.display = "none";
+
 
 // disabling buttons
 const disableButton = () => {
@@ -38,6 +61,7 @@ const disableButton = () => {
     restartGame.disabled = false;
   }
 }
+
 
 // OnClick Functions Here
 const advanceBlue = (e) => {
@@ -62,7 +86,19 @@ const advanceBrown = (e) => {
 };
 
 const randomSteps = (e) => {
-  steps.innerHTML = "Move " + randomNumber + " steps.";
+  if (blue_position < 5 || pink_position < 5 || brown_position < 5){
+    steps.innerHTML = "Move " + randomNumber + " steps";
+  }
+}
+
+const assignedHorse = (e) => {
+  if (randomNumber == 0){
+    chosenHorse.innerHTML = "Blue";
+  } else if (randomNumber == 1){
+    chosenHorse.innerHTML = "Pink";
+  } else if (randomNumber == 2){
+    chosenHorse.innerHTML = "Brown";
+  }
 }
 
 
@@ -86,6 +122,9 @@ const newGame = (e) => {
   blue_position = 1;
   pink_position = 1;
   brown_position = 1;
+  changePosition(blueHorse, blue_position);
+  changePosition(pinkHorse, pink_position);
+  changePosition(brownHorse, brown_position);
   horseWinner.innerHTML = '';
   blueButton.disabled = false;
   pinkButton.disabled = false;
@@ -94,9 +133,11 @@ const newGame = (e) => {
   restartGame.style.display = "none";
 }
 
+
 // Event Listeners Here
 blueButton.addEventListener("click", advanceBlue);
 pinkButton.addEventListener("click", advancePink);
 brownButton.addEventListener("click", advanceBrown);
 restartGame.addEventListener("click", newGame);
 stepsButton.addEventListener("click", randomSteps);
+colorButton.addEventListener("click", assignedHorse);
