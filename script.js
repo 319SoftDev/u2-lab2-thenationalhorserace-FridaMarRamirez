@@ -8,24 +8,6 @@ let brown_position = 1;
 
 let randomNumber = Math.floor(Math.random() * 3);
 
-// let horses = {
-//   "blue" : {
-//       "position" : 1,
-//       "button" : document.querySelector("#blue-button"),
-//       "horse" : document.querySelector("#blue-horse")
-//   },
-//   "pink" : {
-//     "position" : 1,
-//     "button" : document.querySelector("#pink-button"),
-//     "horse" : document.querySelector("#pink-horse")
-//   },
-//   "brown" : {
-//     "position" : 1,
-//     "button" : document.querySelector("#brown-button"),
-//     "horse" : document.querySelector("#brown-horse")
-//   }
-// };
-
 
 // Query Selectors Here
 // blue horse 
@@ -86,7 +68,8 @@ const advanceBrown = (e) => {
 };
 
 const randomSteps = (e) => {
-  if (blue_position < 5 || pink_position < 5 || brown_position < 5){
+  if (blue_position < 5 || pink_position < 5 || brown_position < 5) {
+    randomNumber = Math.floor(Math.random() * 3); // Generate a random number
     steps.innerHTML = "Move " + randomNumber + " steps";
   }
 }
